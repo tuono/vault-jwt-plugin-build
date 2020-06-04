@@ -1,0 +1,26 @@
+#
+# Copyright (C) 2020 Tuono, Inc.
+# All Rights Reserved
+#
+---
+name: tuono-vault-jwt-plugin
+on:
+  push:
+
+jobs:
+  jwt-plugin-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Dump GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "${GITHUB_CONTEXT}"
+
+      - uses: actions/checkout@v2
+
+      - name: Build and publish plugin to Gemfury
+        env:
+          FURY_TOKEN: ${{ secrets.FURY_TOKEN }}
+        run: |
+          make jwt-plugin
