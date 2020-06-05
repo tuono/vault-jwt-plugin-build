@@ -27,13 +27,16 @@ jobs:
         run: |
           make jwt-plugin
 
+      - name: Show filesystem contents
+        run: ls -l .
+
       - name: Publish plugin
         id: tuono-vault-jwt-plugin
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.assets_url }}
-          asset_path: jwt-plugin/bin/tuono-jwt-plugin.tar.gz
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./tuono-jwt-plugin.tar.gz
           asset_name: tuono-jwt-plugin.tar.gz
           asset_content_type: application/zip
