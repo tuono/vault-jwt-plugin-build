@@ -36,7 +36,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.assets_url }}
+          upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./tuono-jwt-plugin.tar.gz
           asset_name: tuono-jwt-plugin.tar.gz
           asset_content_type: application/zip
