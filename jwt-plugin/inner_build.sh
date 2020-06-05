@@ -27,6 +27,8 @@ make test
 mkdir -p /usr/src/myapp/bin
 mv bin/vault-plugin-auth-jwt "${RESULT}"
 
-if ${CI}; then
-  curl -F package=@${RESULT} https://${FURY_TOKEN}@go-proxy.fury.io/tuono/
-fi
+# Gemfury does not yet support package pushes for golang
+# they only support source pushes via git.
+# if ${CI}; then
+#   curl -F package=@${RESULT} https://${FURY_TOKEN}@go-proxy.fury.io/tuono/
+# fi

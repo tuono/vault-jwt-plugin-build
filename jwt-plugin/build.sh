@@ -36,3 +36,5 @@ echo "JWT PLUGIN SUM: ${SHASUM}"
 
 echo "$SHASUM" > "$(pwd)/${SOURCE_DIR}/bin/shasum"
 echo "$PLUGIN_NAME" > "$(pwd)/${SOURCE_DIR}/bin/cmd"
+
+tar -zcvf tuono-jwt-plugin.tar.gz -C jwt-plugin/bin/ .

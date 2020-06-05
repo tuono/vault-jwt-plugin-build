@@ -9,6 +9,7 @@ PROJECT := tuono-vault-jwt-plugin
 
 clean:
 	@rm -rf jwt-plugin/bin/*
+	@rm -f *.tar.gz
 
 jwt-plugin:
 	jwt-plugin/build.sh
